@@ -1,0 +1,28 @@
+{
+    "name": "whatsapp celular",
+    "description": "alterado interface whatsapp",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["activeTab", "scripting", "webRequest"],
+    "action": {
+        "default_icon": {              
+            "16": "images/icon.png",   
+            "24": "images/icon.png",   
+            "32": "images/icon.png",
+            "128": "images/icon.png"    
+        }
+    },
+    "icons": {
+        "16": "images/icon.png",   
+        "24": "images/icon.png",   
+        "32": "images/icon.png",
+        "128": "images/icon.png"     
+    },
+    "host_permissions": ["https://web.whatsapp.com/"],
+    "content_scripts": [
+        {
+            "matches": ["https://web.whatsapp.com/*"],
+            "js": ["js.js"]
+        }
+    ]
+}
