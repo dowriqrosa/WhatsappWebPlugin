@@ -71,6 +71,27 @@ function alterarDesign() {
         })
     });
 
+    //Tela pesquisa conversas
+    document.querySelector("#pane-side").addEventListener("click", async function(e) {
+        await sleep(500);
+        document.querySelector("#app > div > div").childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].addEventListener("click", async function(e) {
+            telaConversa();
+
+            await sleep(500);
+            document.querySelector("#main").style.width=innerWidth+'px';
+            document.querySelector("#app").childNodes[0].childNodes[5].childNodes[3].childNodes[0].childNodes[4].addEventListener("click",function(e) {
+            
+                if(clickinicial == "" || segundoInicial+1000 < Date.now()){
+                    clickinicial = e.clientX
+                    segundoInicial = Date.now();
+                }else if(clickinicial-100 ){
+                    telaTodasConversas();
+                    clickinicial = ""
+                }
+            });
+        })
+    });
+
 }
 
 
