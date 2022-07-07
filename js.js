@@ -22,7 +22,6 @@ function alterarDesign() {
     function sleep(milliseconds) {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
-    var clickinicial = ""
     var segundoInicial
     document.querySelector("#side").style.width=innerWidth+'px';
     document.querySelector("#app").style.width=innerWidth+'px';
@@ -36,22 +35,21 @@ function alterarDesign() {
         
         telaConversa();
     
-        await sleep(500);
+        await sleep(1000);
         document.querySelector("#main").style.width=innerWidth+'px';
         document.querySelector("#app").childNodes[0].childNodes[5].childNodes[3].childNodes[0].childNodes[4].addEventListener("click",function(e) {
         
-            if(segundoInicial == false){
-                segundoInicial = Date.now();
-            }else if(segundoInicial+1000 > Date.now()){
+            if(segundoInicial+1000 > Date.now()){
                 telaTodasConversas();
+                segundoInicial = ""
             }else {
-                segundoInicial = false
+                segundoInicial = Date.now();
             }
         });
     });
 
     //Menu conversas arquivadas
-    document.querySelector("#pane-side > button > div").addEventListener("click", async function(e) {
+    document.querySelector("#pane-side > button > div").addEventListener("click", async function() {
         await sleep(500);
         document.querySelector("#app > div > div").childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].addEventListener("click", async function(e) {
             telaConversa();
@@ -60,12 +58,11 @@ function alterarDesign() {
             document.querySelector("#main").style.width=innerWidth+'px';
             document.querySelector("#app").childNodes[0].childNodes[5].childNodes[3].childNodes[0].childNodes[4].addEventListener("click",function(e) {
             
-                if(segundoInicial == false){
-                    segundoInicial = Date.now();
-                }else if(segundoInicial+1000 > Date.now()){
+                if(segundoInicial+1000 > Date.now()){
                     telaTodasConversas();
+                    segundoInicial = ""
                 }else {
-                    segundoInicial = false
+                    segundoInicial = Date.now();
                 }
             });
         })
