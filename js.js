@@ -43,7 +43,7 @@ function alterarDesign() {
             if(clickinicial == "" || segundoInicial+1000 < Date.now()){
                 clickinicial = e.clientX
                 segundoInicial = Date.now();
-            }else if(e.clientX < clickinicial-100 ){
+            }else if( clickinicial-100 ){
                 telaTodasConversas();
                 clickinicial = ""
             }
@@ -63,7 +63,7 @@ function alterarDesign() {
                 if(clickinicial == "" || segundoInicial+1000 < Date.now()){
                     clickinicial = e.clientX
                     segundoInicial = Date.now();
-                }else if(e.clientX < clickinicial-100 ){
+                }else if(clickinicial-100 ){
                     telaTodasConversas();
                     clickinicial = ""
                 }
